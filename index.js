@@ -4,6 +4,8 @@ const GoogleStrategy = require( 'passport-google-oauth20' ).Strategy;
 const keys = require( './config/keys' ); 
 
 const app = express();
+
+// middlewares
 passport.use( 
         new GoogleStrategy( 
         {
@@ -13,13 +15,16 @@ passport.use(
         },
         
         ( accessToken ) => {
-             console.log( accessToken );
+            console.log( accessToken );
         }
     ) 
 );
 
-// - Client Id
-// - Client Secret
+app.get( '/auth/google', passport.authenticate( 'google', {
+        scope: [ 'profile', 'email' ]
+    }) 
+);
+
 
 const PORT = process.env.PORT || 5000;
 app.listen( PORT );
