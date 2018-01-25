@@ -21,10 +21,14 @@ passport.use(
             if( existingUser ){
                 // we already have a record with this googleID
                 console.log( "User id exists" );
+                done( null, existingUser ); // first arguement is error
             }else{
                 new User({
                     googleId: profile.id
-                }).save();
+                }).save()
+                .then(( user ) => {
+                    done( null, user );
+                })
             }
         })
     })  
