@@ -6,7 +6,13 @@ const keys = require( '../config/keys' );
 const User = mongoose.model( 'users' );
 
 passport.serializeUser(( user, done ) => {
-    done( null, user.id );  //user.id automatically gives mongob id even if its _id in mongoDB
+    done( null, user.id );  //user.id automatically gives mongob id even if its _id in mongoDB - null argu is  for error
+});
+
+passport.deserializeUser(( id, done ) => {
+    User.findById( id ).then(( user ) => {
+        done( null, user );
+    })    
 });
 
 passport.use( 
@@ -27,6 +33,7 @@ passport.use(
                 console.log( "User id exists" );
                 done( null, existingUser ); // first arguement is error
             }else{
+                // we have a new user record
                 new User({
                     googleId: profile.id
                 }).save()
@@ -35,7 +42,7 @@ passport.use(
                 })
             }
         })
-    })  
+    })      
 );
 
     
