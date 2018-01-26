@@ -22,6 +22,7 @@
 	},
 	"homepage": "https://github.com/kinny94/survey-provider#readme",
 	"dependencies": {
+		"cookie-session": "^2.0.0-beta.3",
 		"express": "^4.16.2",
 		"mongoose": "^5.0.1",
 		"nodemon": "^1.14.11",
