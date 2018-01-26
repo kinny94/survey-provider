@@ -13,7 +13,12 @@ module.exports = ( app ) => {
 		}) 
 	);
 
-	app.get('/api/current_user', ( req, res ) => {
+	app.get( '/api/logout', ( req, res ) => {
+		req.logout();	// automatically given by passport - kills all the cookies and id inside  the request
+		res.send( req.user );
+	});
+
+	app.get( '/api/current_user', ( req, res ) => {
 		res.send( req.user );
 	});
 
