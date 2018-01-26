@@ -5,6 +5,10 @@ const keys = require( '../config/keys' );
 
 const User = mongoose.model( 'users' );
 
+passport.serializeUser(( user, done ) => {
+    done( null, user.id );  //user.id automatically gives mongob id even if its _id in mongoDB
+});
+
 passport.use( 
     new GoogleStrategy( 
     {
