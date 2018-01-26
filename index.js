@@ -11,8 +11,9 @@ mongoose.connect( keys.mongoURI, () => {
     console.log("connected!!");
 } );
 
-
 const app = express();
+
+// middlewares to modify incoming request before they are sent off to route handlers 
 app.use(
     cookieSession({
         maxAge: 30 * 24 * 60 * 60 * 1000,
@@ -23,8 +24,8 @@ app.use(
 app.use( passport.initialize() );
 app.use( passport.session() );
 
-// middlewares
-// var authRoutes = require('./routes/authRoutes') and then authRoutes( app ) also works        ;
+// var authRoutes = require('./routes/authRoutes') and then authRoutes( app ) also works
+// handling routes
 require('./routes/authRoutes')( app );
 
 const PORT = process.env.PORT || 5000;
