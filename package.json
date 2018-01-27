@@ -9,7 +9,9 @@
 	},
 	"scripts": {
 		"start": "node index.js",
-		"dev": "nodemon index.js"
+		"serverd": "nodemon index.js",
+		"client": "npm run start --prefix client",
+		"dev": "conurrently \"npm run server\" \" npm run client\""
 	},
 	"repository": {
 		"type": "git",
