@@ -9,9 +9,9 @@
 	},
 	"scripts": {
 		"start": "node index.js",
-		"serverd": "nodemon index.js",
+		"server": "nodemon index.js",
 		"client": "npm run start --prefix client",
-		"dev": "conurrently \"npm run server\" \" npm run client\""
+		"dev": "concurrently \"npm run server\" \" npm run client\""
 	},
 	"repository": {
 		"type": "git",
@@ -24,6 +24,7 @@
 	},
 	"homepage": "https://github.com/kinny94/survey-provider#readme",
 	"dependencies": {
+		"concurrently": "^3.5.1",
 		"cookie-session": "^2.0.0-beta.3",
 		"express": "^4.16.2",
 		"mongoose": "^5.0.1",
