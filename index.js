@@ -5,8 +5,9 @@ const passport = require( 'passport' );
 const cookieSession = require( 'cookie-session' ); 
 const bodyParser = require( 'body-parser');
 
-require('./models/user');
-require('./services/passport');
+require( './models/user' );
+require( './models/Survey' );
+require( './services/passport' );
 
 mongoose.connect( keys.mongoURI, () => {
     console.log("connected!!");
