@@ -9,10 +9,10 @@ module.exports = app => {
         const { title, subject, body, recipients } = req.body; 
 
         const survey = new Survey({
-            title,
+            title, 
             subject,
             body,
-            recipients: recipients.split( ',' ).map( email => ({ email })),
+            recipients: recipients.split( ',' ).map( email => ({ email: email.time() })),
             _user: req.user.id,
             dateSent: Date.now()    
         })
