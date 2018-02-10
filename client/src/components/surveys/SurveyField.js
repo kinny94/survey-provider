@@ -1,9 +1,10 @@
 import React from 'react';
 
-export default () => {
+export default ({ input, label }) => {         // looks input props.input
     return (
         <div>
-            <input />
+            <label>{ label }</label>
+            <input { ...input } />
         </div>
     )
 }
