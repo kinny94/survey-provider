@@ -1,10 +1,14 @@
 import React from 'react';
 
-export default ({ input, label }) => {         // looks input props.input
+export default ({ input, label, meta: { error, touched }}) => {         // looks input props.input
+    
     return (
         <div>
             <label>{ label }</label>
-            <input { ...input } />
+            <input { ...input } style={{ marginBottom:'5px' }}/>
+            <div className="red-text" style={{ marginBottom: '20px' }}>
+                { touched && error }
+            </div>
         </div>
     )
 }
