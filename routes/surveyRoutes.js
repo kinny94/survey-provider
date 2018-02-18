@@ -1,4 +1,4 @@
-const _ = require( 'lodash' );
+const _ = require( 'lodash' ); // library for different functions
 const Path = require( 'path-parser' );
 const { URL } = require( 'url' );   
 const mongoose = require( 'mongoose' );
